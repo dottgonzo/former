@@ -1,0 +1,28 @@
+{
+  "name": "former",
+  "version": "0.0.1",
+  "description": "Parse JSON forms",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha",
+    "build": "npx tsc",
+    "dev": "npx tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dottgonzo/former.git"
+  },
+  "author": "Dario Caruso",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/dottgonzo/former/issues"
+  },
+  "homepage": "https://github.com/dottgonzo/former#readme",
+  "devDependencies": {
+    "@types/chai": "^4.0.10",
+    "@types/mocha": "^2.2.45",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "typescript": "^2.6.2"
+  }
+}
