@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function validate(formdata, formschema) {
-    const requireds = [];
-    for (let s = 0; s < formschema.length; s++) {
+    var requireds = [];
+    for (var s = 0; s < formschema.length; s++) {
         if (formschema[s].required) {
-            let exists = false;
-            for (let d = 0; d < formdata.length; d++) {
+            var exists = false;
+            for (var d = 0; d < formdata.length; d++) {
                 if (formdata[d].label === formschema[s].label) {
                     switch (formschema[s].type) {
                         case 'checkbox':
