@@ -1,6 +1,6 @@
 {
   "name": "formerjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse JSON forms",
   "main": "index.js",
   "scripts": {

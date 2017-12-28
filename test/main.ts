@@ -13,6 +13,13 @@ const form0 = [
     required: true
   },
   {
+    type: "email",
+    label: "email",
+    value: "",
+    position: 1,
+    required: true
+  },
+  {
     type: "checkbox",
     label: "zzzzzzzz",
     value: "",
@@ -24,6 +31,17 @@ const form0 = [
     label: "Telefono",
     value: "",
     position: 3
+  }
+]
+
+
+const formeemail = [
+  {
+    type: "email",
+    label: "Email",
+    value: "",
+    position: 1,
+    required: true
   }
 ]
 
@@ -73,6 +91,10 @@ const answers0 = [{
   "label": "Nome"
 },
 {
+  value: "dddd@rr.r",
+  label: "email"
+},
+{
   "name": "Telefono",
   "value": "fff",
   "label": "Telefono"
@@ -82,6 +104,10 @@ const answers1 = [{
   "name": "Nome",
   "value": "",
   "label": "Nome"
+},
+{
+  value: "dddd@rr.r",
+  label: "email"
 },
 {
   "name": "zzzzzzzz",
@@ -99,6 +125,10 @@ const answers2 = [{
   "label": "Nome"
 },
 {
+  value: "dddd@rr.r",
+  label: "email"
+},
+{
   "name": "Email",
   "value": "gggg",
   "label": "zzzzzzzz"
@@ -109,12 +139,39 @@ const answers2 = [{
   "label": "Telefono"
 }]
 
+const wrongansweremail0 = [
+  {
+    value: "dddd",
+    label: "email"
+  }
+]
+const wrongansweremail1 = [
+  {
+    value: "dddd@rrr",
+    label: "email"
+  }
+]
+const wrongansweremail2 = [
+  {
+    value: "dddd.rrr",
+    label: "email"
+  }
+]
+const wrongansweremail3 = [
+  {
+    value: "dddd@rrr",
+    label: "email"
+  }
+]
 
 describe('former testing', function () {
 
   describe('validate simple wrong forms', () => {
     const novalid1 = <any>former.validate(answers0, form0)
     const novalid2 = <{errors:former.IRequestmodelSchema[]}>former.validate(answers1, form0)
+    const wrongemail1 = <{errors:former.IRequestmodelSchema[]}>former.validate(wrongansweremail1, formeemail)
+    const wrongemail2 = <{errors:former.IRequestmodelSchema[]}>former.validate(wrongansweremail2, formeemail)
+    const wrongemail3 = <{errors:former.IRequestmodelSchema[]}>former.validate(wrongansweremail3, formeemail)
 
     it('not contains ok true', () => {
       expect(novalid1.ok).not.be.ok
@@ -132,6 +189,15 @@ describe('former testing', function () {
       expect(novalid2.errors.length).to.be.eq(1)
     })
 
+    it('check wrong email dddd', () => {
+      expect(wrongemail1.errors.length).to.be.eq(1)
+    })
+    it('check wrong email dddd@rrr', () => {
+      expect(wrongemail2.errors.length).to.be.eq(1)
+    })
+    it('check wrong email dddd.rrr', () => {
+      expect(wrongemail3.errors.length).to.be.eq(1)
+    })
   })
 
   describe('validate simple form', () => {
