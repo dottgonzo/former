@@ -11,6 +11,13 @@ function validate(formdata, formschema) {
                         case 'checkbox':
                             exists = true;
                             break;
+                        case 'text':
+                            if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 8)
+                                exists = true;
+                        case 'string':
+                            if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 3)
+                                exists = true;
+                            break;
                         case 'email':
                             if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.split('@').length > 1 && formdata[d].value.split('@')[1].split('.').length > 1)
                                 exists = true;
