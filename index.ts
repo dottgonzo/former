@@ -10,7 +10,6 @@ export interface IRequestmodelSchema {
   value: string
   placeholder?: string
   options?: IRequestmodelSchemaOpt[]
-  position: number
   required?: boolean
 }
 
