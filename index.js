@@ -15,7 +15,7 @@ function validate(formdata, formschema) {
                             if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 8)
                                 exists = true;
                         case 'string':
-                            if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 3)
+                            if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 0)
                                 exists = true;
                             break;
                         case 'email':
