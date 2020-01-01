@@ -12,10 +12,10 @@ function validate(formdata, formschema) {
                             exists = true;
                             break;
                         case 'text':
-                            if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 8)
+                            if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > (formschema[s].minLenght || 0))
                                 exists = true;
                         case 'string':
-                            if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 0)
+                            if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > (formschema[s].minLenght || 0))
                                 exists = true;
                             break;
                         case 'email':

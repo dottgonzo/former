@@ -11,6 +11,7 @@ export interface IRequestmodelSchema {
   placeholder?: string
   options?: IRequestmodelSchemaOpt[]
   required?: boolean
+  minLenght?: number
 }
 
 
@@ -36,9 +37,9 @@ export function validate(formdata: IFormData[], formschema: IRequestmodelSchema[
               exists = true
               break
               case 'text':
-              if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 8) exists = true
+              if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > (formschema[s].minLenght || 0)) exists = true
               case 'string':
-              if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > 0) exists = true
+              if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.length > (formschema[s].minLenght || 0)) exists = true
               break
             case 'email':
               if (formdata[d].value && formdata[d].value !== '' && formdata[d].value.split('@').length > 1 && formdata[d].value.split('@')[1].split('.').length > 1) exists = true
